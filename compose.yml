@@ -1,0 +1,10 @@
+services:
+  game-server:
+    image: angelofallaria/hytale:latest
+    ports:
+      - "5520:5520/udp"
+    volumes:
+      - server-data:/server/data
+
+volumes:
+  server-data:
