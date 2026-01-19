@@ -38,5 +38,4 @@ ADD tmux_entrypoint.sh /server/bin/tmux_entrypoint.sh
 ENTRYPOINT [ "/server/bin/tmux_entrypoint.sh" ]
 
 CMD [ "java", "-jar", "/server/bin/HytaleServer.jar", "--assets", "/server/bin/Assets.zip", \
-      "--early-plugins", "/server/data/plugins" \
-    ]
+      "--early-plugins", "/server/data/plugins" ]
