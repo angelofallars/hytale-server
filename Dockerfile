@@ -3,14 +3,16 @@ FROM alpine:3.23.2 AS builder
 RUN mkdir -p /downloads
 WORKDIR /downloads
 
-RUN wget --progress=dot:giga https://downloader.hytale.com/hytale-downloader.zip \
-    unzip hytale-downloader.zip \
-    ./hytale-downloader-linux-amd64 -version
+RUN wget https://downloader.hytale.com/hytale-downloader.zip \
+    unzip hytale-downloader.zip
+
+RUN ./hytale-downloader-linux-amd64 -version
 
 # Trigger authentication flow.
 # Currently this requires going through a browser auth flow, no way around it.
-RUN ./hytale-downloader-linux-amd64 -print-version \
-    ./hytale-downloader-linux-amd64 -print-version > /hytale-version
+RUN ./hytale-downloader-linux-amd64 -print-version
+
+RUN ./hytale-downloader-linux-amd64 -print-version > /hytale-version
 
 # Download game
 RUN mkdir -p /server/bin \
@@ -24,7 +26,7 @@ FROM eclipse-temurin:25 AS runner
 COPY --from=builder /server/bin /server/bin
 
 RUN apt-get update && \
-    apt-get install -y tmux=3.4 --no-install-recommends
+    apt-get install -y tmux
 
 RUN mkdir -p /server/data /server/data/plugins
 
