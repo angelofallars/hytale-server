@@ -31,3 +31,8 @@ setup_docker() {
 
 setup_firewall
 setup_docker
+
+apt-get install -y neovim
+
+mkdir -p /var/lib/docker/volumes/server-data/_data
+ln -s /var/lib/docker/volumes/server-data/_data /data
