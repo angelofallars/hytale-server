@@ -17,4 +17,4 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Validate Dockerfile
-        run: docker build -check .
+        run: docker build --check .
