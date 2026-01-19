@@ -13,9 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v6
-
+      - uses: actions/checkout@v6
       - name: Validate Dockerfile
         run: docker build --check .
 
@@ -25,8 +23,6 @@ jobs:
     container: hadolint/hadolint:latest-alpine
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v6
-
+      - uses: actions/checkout@v6
       - name: Lint Dockerfile with hadolint
         run: hadolint Dockerfile

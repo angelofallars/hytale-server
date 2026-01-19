@@ -9,9 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
-        uses: actions/checkout@v6
-
+      - uses: actions/checkout@v6
       - name: Upload compose.yml file
         uses: appleboy/scp-action@v1
         with:
