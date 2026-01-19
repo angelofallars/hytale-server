@@ -1,0 +1,16 @@
+name: docker-compose-00-validate.yml
+
+on:
+  push:
+
+jobs:
+  validate:
+    name: Validate Docker Compose
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v6
+
+      - name: Validate Docker Compose Config
+        run: docker compose config
