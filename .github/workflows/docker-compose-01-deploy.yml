@@ -32,4 +32,5 @@ jobs:
           script: |
             cd /etc/server
             docker compose down
+            docker compose pull
             docker compose up -d
