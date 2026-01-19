@@ -5,6 +5,7 @@ setup_firewall() {
     ufw default deny incoming
     ufw allow ssh
     ufw allow 5520/udp # Game directory
+    ufw enable
 }
 
 setup_docker() {
