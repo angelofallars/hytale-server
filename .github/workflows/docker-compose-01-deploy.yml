@@ -2,13 +2,6 @@ name: docker-compose-01-deploy
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - docker-compose-00-validate
-    types:
-      - completed
-    branches:
-      - main
 
 jobs:
   deploy:
@@ -19,7 +12,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v6
 
-      - name: Deploy compose.yml file
+      - name: Upload compose.yml file
         uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -28,3 +21,15 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           source: compose.yml
           target: /etc/server
+
+      - name: Deploy compose.yml file
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd /etc/server
+            docker compose down
+            docker compose up -d
