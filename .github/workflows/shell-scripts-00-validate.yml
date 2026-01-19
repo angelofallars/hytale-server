@@ -1,0 +1,17 @@
+name: shell-scripts-00-validate
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "*.sh"
+      - .github/workflows/shell-scripts-00-validate.yml
+
+jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
