@@ -1,5 +1,3 @@
-name: docker-compose-00-validate.yml
-
 on:
   push:
 
