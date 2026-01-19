@@ -1,6 +1,8 @@
+name: hytale-compose
 services:
   game-server:
     image: angelofallaria/hytale:latest
+    container_name: game-server
     ports:
       - "5520:5520/udp"
     volumes:
@@ -10,3 +12,4 @@ services:
 
 volumes:
   server-data:
+    name: server-data
