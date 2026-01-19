@@ -1,0 +1,20 @@
+name: dockerfile-00-validate
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - Dockerfile
+      - .github/workflows/dockerfile-00-validate.yml
+
+jobs:
+  validate:
+    name: Validate Dockerfile
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v6
+
+      - name: Validate Dockerfile
+        run: docker build -check .
