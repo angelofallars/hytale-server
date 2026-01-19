@@ -1,3 +1,5 @@
+name: docker-compose-01-deploy
+
 on:
   workflow_run:
     workflows:

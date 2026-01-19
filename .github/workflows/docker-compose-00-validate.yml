@@ -1,5 +1,9 @@
+name: docker-compose-00-validate
+
 on:
   push:
+    paths:
+      - compose.yml
 
 jobs:
   validate:
