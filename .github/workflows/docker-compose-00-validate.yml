@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - compose.yml
+      - .github/workflows/docker-compose-00-validate.yml
 
 jobs:
   validate:
