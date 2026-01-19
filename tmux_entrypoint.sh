@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -eu
 # This will continually relaunch the Hytale server if it is stopped.
