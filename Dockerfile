@@ -3,7 +3,7 @@ FROM alpine:3.23.2 AS builder
 RUN mkdir -p /downloads
 WORKDIR /downloads
 
-RUN wget https://downloader.hytale.com/hytale-downloader.zip \
+RUN wget https://downloader.hytale.com/hytale-downloader.zip &&\
     unzip hytale-downloader.zip
 
 RUN ./hytale-downloader-linux-amd64 -version
@@ -15,18 +15,19 @@ RUN ./hytale-downloader-linux-amd64 -print-version
 RUN ./hytale-downloader-linux-amd64 -print-version > /hytale-version
 
 # Download game
-RUN mkdir -p /server/bin \
-    ./hytale-downloader-linux-amd64 -patchline release \
-    unzip "$(cat /hytale-version)" -d /server/bin \
-    mv /server/bin/Server/* /server/bin \
+RUN ./hytale-downloader-linux-amd64 -patchline release
+
+RUN mkdir -p /server/bin &&\
+    unzip "$(cat /hytale-version)" -d /server/bin &&\
+    mv /server/bin/Server/* /server/bin &&\
     rmdir /server/bin/Server
 
 FROM eclipse-temurin:25 AS runner
 
 COPY --from=builder /server/bin /server/bin
 
-RUN apt-get update && \
-    apt-get install -y tmux
+RUN apt-get update &&\
+    apt-get install -y tmux=3.4-1ubuntu0.1
 
 RUN mkdir -p /server/data /server/data/plugins
 
