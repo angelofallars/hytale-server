@@ -6,6 +6,7 @@ on:
     paths:
       - Dockerfile
       - .github/workflows/dockerfile-00-validate.yml
+      - .hadolint.yaml
 
 jobs:
   validate:
