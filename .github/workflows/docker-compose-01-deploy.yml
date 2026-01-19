@@ -18,11 +18,12 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v6
 
-      - name: Execute remote SSH commands using password
-        uses: appleboy/ssh-action@v1
+      - name: Deploy compose.yml file
+        uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          script: whoami
+          source: compose.yml
+          target: /etc/server
