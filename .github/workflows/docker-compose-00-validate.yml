@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - compose.yml
+      - docker-compose.yml
       - .github/workflows/docker-compose-00-validate.yml
 
 jobs:
