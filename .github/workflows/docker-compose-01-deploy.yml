@@ -1,6 +1,7 @@
 name: docker-compose-01-deploy
 
 on:
+  workflow_dispatch:
   workflow_run:
     workflows:
       - docker-compose-00-validate

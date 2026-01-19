@@ -1,6 +1,7 @@
 name: docker-compose-00-validate
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - compose.yml
