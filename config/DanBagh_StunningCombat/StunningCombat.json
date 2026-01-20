@@ -1,0 +1,7 @@
+{
+  "ParryTimeWindowMS": 250,
+  "ParryKnockbackX": 4.0,
+  "ParryKnockbackY": 10.0,
+  "ParryStunDurationMS": 1500,
+  "StunCriticalDamageRate": 1.5
+}
