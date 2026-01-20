@@ -2,7 +2,12 @@ name: deploy_mods
 
 on:
   workflow_dispatch:
-  push: # temporary
+  push:
+    branches:
+    - main
+    paths:
+    - mods.txt
+    - .github/workflows/deploy-mods.yml
 
 jobs:
   deploy:
@@ -40,6 +45,6 @@ jobs:
     uses: ./.github/workflows/restart-server.yml
     secrets:
       SSH_HOST: ${{ secrets.SSH_HOST }}
-      USERNAME: ${{ secrets.SSH_USERNAME }}
-      KEY: ${{ secrets.SSH_KEY }}
-      PORT: ${{ secrets.SSH_PORT }}
+      SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+      SSH_KEY: ${{ secrets.SSH_KEY }}
+      SSH_PORT: ${{ secrets.SSH_PORT }}
