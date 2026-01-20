@@ -40,8 +40,8 @@ jobs:
         source: mods/
         target: /data/
 
-  restart-server:
-    needs: deploy
+  restart_server:
+    needs: deploy_mods
     uses: ./.github/workflows/restart-server.yml
     secrets: inherit
     with:
