@@ -3,6 +3,12 @@ name: restart-server
 on:
   workflow_dispatch:
   workflow_call:
+    inputs:
+      reason:
+        description: "The reason the server is restarting"
+        default: "Server maintenance"
+        required: false
+        type: string
     secrets:
       SSH_HOST:
         required: true
@@ -26,4 +32,25 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          script: docker exec game-server tmux send-keys -t hytale-session "/stop" Enter
+          script: |
+              run_command() {
+                  docker exec game-server tmux send-keys -t hytale-session "$1" Enter
+              }
+
+              run_command '/broadcast The server is restarting in 20 seconds! Reason: ${{ inputs.reason || "Server maintenance" }}'
+              sleep 10s
+              run_command '/broadcast The server is restarting in 10 seconds!'
+              sleep 5s
+              run_command '/broadcast Restarting in 5...'
+              sleep 1s
+              run_command '/broadcast 4...'
+              sleep 1s
+              run_command '/broadcast 3...'
+              sleep 1s
+              run_command '/broadcast 2...'
+              sleep 1s
+              run_command '/broadcast 1...'
+              sleep 1s
+
+              run_command '/eventtitle --primary "Server is restarting now! Rejoin in ~30 seconds...\" --major'
+              run_command '/stop'

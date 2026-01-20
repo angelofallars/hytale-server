@@ -43,8 +43,6 @@ jobs:
   restart-server:
     needs: deploy
     uses: ./.github/workflows/restart-server.yml
-    secrets:
-      SSH_HOST: ${{ secrets.SSH_HOST }}
-      SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
-      SSH_KEY: ${{ secrets.SSH_KEY }}
-      SSH_PORT: ${{ secrets.SSH_PORT }}
+    secrets: inherit
+    with:
+      reason: "Mod updates"
