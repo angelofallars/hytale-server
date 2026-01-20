@@ -1,0 +1,40 @@
+name: deploy_mods
+
+on:
+  workflow_dispatch:
+  push: # temporary
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+    - name: Download mods
+      run: |
+        cat mods.txt | while read mod_url; do
+            wget -P mods/ -x "$mod_url"
+        done
+
+    - name: Delete mods folder
+      uses: appleboy/scp-action@v1
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: rm -rf /data/mods/*
+
+    - name: Deploy mods
+      uses: appleboy/scp-action@v1
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        source: mods/
+        target: /data/mods/
+
+  restart-server:
+    needs: deploy
+    uses: ./.github/workflows/restart-server.yml
