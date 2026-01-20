@@ -54,4 +54,5 @@ jobs:
               cmd '/broadcast 1...'
               sleep 1s
 
+              cmd '/broadcast The server has restarted. If you are still here, disconnect now and reconnect after around 50 seconds.'
               cmd '/stop'
