@@ -37,12 +37,12 @@ jobs:
                   docker exec game-server tmux send-keys -t hytale-session "$1" Enter
               }
 
-              cmd '/eventtitle --title "Server restarting in 20 seconds!" --secondary "Reason: ${{ inputs.reason || 'Server maintenance' }}" --major'
-              cmd '/broadcast Server is restarting in 20 seconds! Reason: ${{ inputs.reason || 'Server maintenance' }}'
-              sleep 10s
+              cmd '/eventtitle --title "Server restarting in 30 seconds!" --secondary "Reason: ${{ inputs.reason || 'Server maintenance' }}" --major'
+              cmd '/broadcast Server is restarting in 30 seconds! Reason: ${{ inputs.reason || 'Server maintenance' }}'
+              sleep 20s
               cmd '/broadcast Server is restarting in 10 seconds!'
               sleep 5s
-              cmd '/eventtitle --title "Server restarting in 5 seconds! Please reconnect after 30 seconds..." --secondary "Reason: ${{ inputs.reason || 'Server maintenance' }}" --major'
+              cmd '/eventtitle --title "Server restarting in 5 seconds! Reconnect after 30s..." --secondary "Reason: ${{ inputs.reason || 'Server maintenance' }}" --major'
               cmd '/broadcast Restarting in 5...'
               sleep 1s
               cmd '/broadcast 4...'

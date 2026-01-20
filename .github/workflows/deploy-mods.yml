@@ -1,4 +1,4 @@
-name: deploy_mods
+name: deploy-mods
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ on:
     - .github/workflows/deploy-mods.yml
 
 jobs:
-  deploy:
+  deploy_mods:
     runs-on: ubuntu-latest
 
     steps:
