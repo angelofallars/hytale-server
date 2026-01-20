@@ -28,17 +28,14 @@ jobs:
         strip_components: 1
         overwrite: 1
 
-    - name: Deploy parry config
-      uses: appleboy/scp-action@v1
+    - name: Move Perfect Parry config to correct location
+      uses: appleboy/ssh-action@v1
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
-        source: config/parry_config.json
-        target: /data/
-        strip_components: 1
-        overwrite: 1
+        script: mv /data/mods/parry_config.json /data
 
   restart_server:
     needs: deploy_mod_config
