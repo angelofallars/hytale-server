@@ -33,24 +33,25 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-              run_command() {
+              cmd() {
                   docker exec game-server tmux send-keys -t hytale-session "$1" Enter
               }
 
-              run_command '/broadcast The server is restarting in 20 seconds! Reason: ${{ inputs.reason || 'Server maintenance' }}'
+              cmd '/eventtitle --title "Server restarting in 20 seconds!" --secondary "Reason: ${{ inputs.reason || 'Server maintenance' }}" --major'
+              cmd '/broadcast Server is restarting in 20 seconds! Reason: ${{ inputs.reason || 'Server maintenance' }}'
               sleep 10s
-              run_command '/broadcast The server is restarting in 10 seconds!'
+              cmd '/broadcast Server is restarting in 10 seconds!'
               sleep 5s
-              run_command '/broadcast Restarting in 5...'
+              cmd '/eventtitle --title "Server restarting in 5 seconds! Please reconnect after 30 seconds..." --secondary "Reason: ${{ inputs.reason || 'Server maintenance' }}" --major'
+              cmd '/broadcast Restarting in 5...'
               sleep 1s
-              run_command '/broadcast 4...'
+              cmd '/broadcast 4...'
               sleep 1s
-              run_command '/broadcast 3...'
+              cmd '/broadcast 3...'
               sleep 1s
-              run_command '/broadcast 2...'
+              cmd '/broadcast 2...'
               sleep 1s
-              run_command '/broadcast 1...'
+              cmd '/broadcast 1...'
               sleep 1s
 
-              run_command '/eventtitle --primary "Server is restarting now! Rejoin in ~30 seconds...\" --major'
-              run_command '/stop'
+              cmd '/stop'
