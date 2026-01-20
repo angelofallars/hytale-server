@@ -1,0 +1,14 @@
+{
+  "parryWindowMs": 250,
+  "reflectDamagePercent": 0.10,
+  "knockbackX": 100,
+  "knockbackY": 8,
+  "staggerDurationSeconds": 3.0,
+  "parriesToFullSignatureEnergy": 8,
+  "parryStaminaDrainMultiplier": -0.2,
+  "counterattackWindowMs": 500,
+  "counterattackDamageMultiplier": 1.5,
+  "enableEntityStamina": false,
+  "stunDurationSeconds": 2,
+  "stunnedDamageMultiplier": 2
+}

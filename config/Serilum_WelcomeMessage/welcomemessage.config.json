@@ -1,0 +1,10 @@
+{
+  "WelcomeMessageLine1": "Welcome, %username%!",
+  "WelcomeMessageRGBLine1": "255,170,0",
+  "WelcomeMessageLine2": "",
+  "WelcomeMessageRGBLine2": "0,0,0",
+  "WelcomeMessageLine3": "",
+  "WelcomeMessageRGBLine3": "0,0,0",
+  "WelcomeMessageLine4": "",
+  "WelcomeMessageRGBLine4": "0,0,0"
+}

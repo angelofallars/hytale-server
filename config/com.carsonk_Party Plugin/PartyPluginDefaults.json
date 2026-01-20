@@ -1,0 +1,9 @@
+{
+  "DefaultPvpEnabled": false,
+  "DefaultShowPartyHud": true,
+  "DefaultHudRightAligned": false,
+  "DefaultShowFriendsInHud": true,
+  "DefaultShowPartyOnCompass": true,
+  "DefaultShowFriendsOnCompass": true,
+  "DefaultFriendsCanPvpMe": false
+}

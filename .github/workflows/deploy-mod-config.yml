@@ -1,0 +1,48 @@
+name: deploy-mod-config
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+    paths:
+    - config/
+    - .github/workflows/deploy-mod-config.yml
+
+jobs:
+  deploy_mods:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Deploy new mod config
+      uses: appleboy/scp-action@v1
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        source: config/
+        target: /data/mods/
+        strip_components: true
+        overwrite: true
+
+    - name: Deploy parry config
+      uses: appleboy/scp-action@v1
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        source: config/parry_config.json
+        target: /data/
+        strip_components: true
+        overwrite: true
+
+  restart_server:
+    needs: deploy_mods
+    uses: ./.github/workflows/restart-server.yml
+    secrets: inherit
+    with:
+      reason: "Mod configuration updates"

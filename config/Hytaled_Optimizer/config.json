@@ -1,0 +1,86 @@
+{
+  "LoopIntervalSeconds": 3,
+  "ViewRadius": {
+    "Enabled": true,
+    "BroadcastChanges": true,
+    "Min": 5,
+    "Max": 20,
+    "DecreaseFactor": 0.75,
+    "AdjustmentCooldownSeconds": 5,
+    "RecoveryDelaySeconds": 900,
+    "RecoveryPlayerDropPercent": 0.2,
+    "TpsLow": 15.0,
+    "TpsHigh": 25.0,
+    "HeapPressureHigh": 0.9,
+    "HeapPressureLow": 0.8
+  },
+  "Simulation": {
+    "Enabled": true,
+    "Min": 5,
+    "Max": 11,
+    "DecreaseStep": 2,
+    "RecoveryStep": 1,
+    "TpsLow": 15.0,
+    "TpsHigh": 20.0
+  },
+  "PerPlayerDistance": {
+    "Enabled": true,
+    "Min": 5,
+    "Max": 11,
+    "MinLoadedOffset": 1,
+    "HotspotTpsLow": 15.0,
+    "HotspotReduceBy": 2,
+    "CooldownSeconds": 5
+  },
+  "AiLod": {
+    "Enabled": true,
+    "UpdateIntervalMs": 150,
+    "UseVisibility": true,
+    "NearDistance": 40.0,
+    "MidDistance": 80.0,
+    "FarDistance": 120.0,
+    "MidTickSeconds": 0.2,
+    "FarTickSeconds": 0.5,
+    "VeryFarTickSeconds": 1.0,
+    "MinTickSeconds": 0.05
+  },
+  "Logging": {
+    "EnableEventLogging": true,
+    "EventLogCooldownSeconds": 30
+  },
+  "IdlePlayer": {
+    "Enabled": true,
+    "IdleTimeoutSeconds": 90,
+    "CheckIntervalSeconds": 10,
+    "ReduceViewRadius": true,
+    "IdleViewRadius": 4,
+    "ReduceHotRadius": true,
+    "IdleHotRadius": 3,
+    "ReduceMinLoadedRadius": true,
+    "IdleMinLoadedRadius": 2,
+    "ClearWorldMapCache": true
+  },
+  "Profiler": {
+    "Enabled": true,
+    "AutoWindowDurationSeconds": 60,
+    "ProfileDurationSeconds": 30,
+    "ExportJson": true
+  },
+  "DespawnAccelerator": {
+    "Enabled": false,
+    "RunIntervalSeconds": 10,
+    "InactiveSeconds": 30,
+    "NoPlayerRadiusBlocks": 64.0,
+    "ReduceRemainingFactor": 0.5,
+    "MinSecondsRemaining": 10,
+    "ApplyToProjectiles": true,
+    "ApplyToItems": true,
+    "ApplyToBlockEntities": true
+  },
+  "AutoGc": {
+    "Enabled": true,
+    "HeapUsageTrigger": 0.9,
+    "ConsecutiveChecks": 3,
+    "MinIntervalSeconds": 900
+  }
+}
