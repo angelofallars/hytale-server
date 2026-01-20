@@ -2,7 +2,6 @@ https://mediafilez.forgecdn.net/files/7491/939/EyeSpy-2026.1.20-5708.jar
 https://mediafilez.forgecdn.net/files/7489/785/ymmersive-melodies-1.0.4.jar
 https://mediafilez.forgecdn.net/files/7459/412/Aures_Livestock_14.01.2026.zip
 https://mediafilez.forgecdn.net/files/7484/158/BetterMap-1.2.2.jar
-https://mediafilez.forgecdn.net/files/7486/454/Perfect%20Parries-0.4.0.jar
 https://mediafilez.forgecdn.net/files/7454/360/NoCube_Undead_Warriors_0.0.3.zip
 https://mediafilez.forgecdn.net/files/7489/768/ymmersive-foliage-1.0.1.jar
 https://mediafilez.forgecdn.net/files/7484/176/HideArmor-0.8.0-alpha.jar
@@ -17,3 +16,4 @@ https://mediafilez.forgecdn.net/files/7483/512/AdminUI-1.0.4.jar
 https://mediafilez.forgecdn.net/files/7490/631/LuckPerms-Hytale-5.5.25-beta10.jar
 https://mediafilez.forgecdn.net/files/7447/751/BetterModlist-1.0.4.jar
 https://mediafilez.forgecdn.net/files/7493/247/MiningHelmets103.zip
+https://mediafilez.forgecdn.net/files/7492/278/StunningCombat-1.0.0.jar
