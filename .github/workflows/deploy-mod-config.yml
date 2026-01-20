@@ -10,13 +10,13 @@ on:
     - .github/workflows/deploy-mod-config.yml
 
 jobs:
-  deploy_mods:
+  deploy_mod_config:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v6
 
-    - name: Deploy new mod config
+    - name: Deploy mod configs
       uses: appleboy/scp-action@v1
       with:
         host: ${{ secrets.SSH_HOST }}
@@ -41,7 +41,7 @@ jobs:
         overwrite: 1
 
   restart_server:
-    needs: deploy_mods
+    needs: deploy_mod_config
     uses: ./.github/workflows/restart-server.yml
     secrets: inherit
     with:
