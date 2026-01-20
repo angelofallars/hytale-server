@@ -37,7 +37,7 @@ jobs:
                   docker exec game-server tmux send-keys -t hytale-session "$1" Enter
               }
 
-              run_command '/broadcast The server is restarting in 20 seconds! Reason: ${{ inputs.reason || "Server maintenance" }}'
+              run_command '/broadcast The server is restarting in 20 seconds! Reason: ${{ inputs.reason || 'Server maintenance' }}'
               sleep 10s
               run_command '/broadcast The server is restarting in 10 seconds!'
               sleep 5s
