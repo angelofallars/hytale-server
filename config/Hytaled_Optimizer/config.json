@@ -3,7 +3,7 @@
   "ViewRadius": {
     "Enabled": true,
     "BroadcastChanges": true,
-    "Min": 5,
+    "Min": 10,
     "Max": 20,
     "DecreaseFactor": 0.75,
     "AdjustmentCooldownSeconds": 5,
