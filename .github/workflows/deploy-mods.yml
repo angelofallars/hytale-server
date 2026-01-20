@@ -13,7 +13,7 @@ jobs:
     - name: Download mods
       run: |
         cat mods.txt | while read mod_url; do
-            wget -P mods/ -x "$mod_url"
+            wget "$mod_url" -P mods/
         done
 
     - name: Delete mods folder
@@ -23,7 +23,7 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
-        script: rm -rf /data/mods/*
+        script: rm -rf /data/mods/
 
     - name: Deploy mods
       uses: appleboy/scp-action@v1
@@ -33,7 +33,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.SSH_PORT }}
         source: mods/
-        target: /data/mods/
+        target: /data/
 
   restart-server:
     needs: deploy
