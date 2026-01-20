@@ -18,7 +18,7 @@ jobs:
     - name: Download mods
       run: |
         cat mods.txt | while read mod_url; do
-            wget https://mediafilez.forgecdn.net/files/"$mod_url" -P mods/
+            wget "$mod_url" -P mods/
         done
 
     - name: Delete existing mods
