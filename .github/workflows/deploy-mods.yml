@@ -38,3 +38,8 @@ jobs:
   restart-server:
     needs: deploy
     uses: ./.github/workflows/restart-server.yml
+    secrets:
+      SSH_HOST: ${{ secrets.SSH_HOST }}
+      USERNAME: ${{ secrets.SSH_USERNAME }}
+      KEY: ${{ secrets.SSH_KEY }}
+      PORT: ${{ secrets.SSH_PORT }}
