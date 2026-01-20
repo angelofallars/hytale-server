@@ -6,7 +6,7 @@ on:
     branches:
     - main
     paths:
-    - config/
+    - config/**
     - .github/workflows/deploy-mod-config.yml
 
 jobs:

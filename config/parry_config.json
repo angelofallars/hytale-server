@@ -1,7 +1,7 @@
 {
   "parryWindowMs": 250,
   "reflectDamagePercent": 0.10,
-  "knockbackX": 120,
+  "knockbackX": 125,
   "knockbackY": 12,
   "staggerDurationSeconds": 3.0,
   "parriesToFullSignatureEnergy": 8,
