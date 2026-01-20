@@ -15,3 +15,4 @@
 7490/348/PartyPlugin-1.5.3.jar
 7483/512/AdminUI-1.0.4.jar
 7490/631/LuckPerms-Hytale-5.5.25-beta10.jar
+7447/751/BetterModlist-1.0.4.jar
