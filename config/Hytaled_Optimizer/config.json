@@ -3,7 +3,7 @@
   "ViewRadius": {
     "Enabled": true,
     "BroadcastChanges": true,
-    "Min": 10,
+    "Min": 8,
     "Max": 20,
     "DecreaseFactor": 0.75,
     "AdjustmentCooldownSeconds": 5,
@@ -16,7 +16,7 @@
   },
   "Simulation": {
     "Enabled": true,
-    "Min": 5,
+    "Min": 8,
     "Max": 11,
     "DecreaseStep": 2,
     "RecoveryStep": 1,
