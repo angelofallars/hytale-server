@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Download Hytale
+    - name: Download Hytale server files
       id: download_hytale
       run: |
         wget https://downloader.hytale.com/hytale-downloader.zip
@@ -23,9 +23,9 @@ jobs:
         # Download game
         ./hytale-downloader-linux-amd64 -patchline release
 
-        echo "version=$(/hytale-downloader-linux-amd64 -print-version) >> $GITHUB_OUTPUT
+        echo "version=$(./hytale-downloader-linux-amd64 -print-version)" >> $GITHUB_OUTPUT
 
-    - name: Upload Hytale artifact
+    - name: Upload Hytale server files artifact
       uses: actions/upload-artifact@v6
       with:
         name: ${{ steps.download_hytale.outputs.version }}
