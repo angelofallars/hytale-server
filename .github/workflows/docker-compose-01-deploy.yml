@@ -2,10 +2,15 @@ name: docker-compose-01-deploy
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+    - main
+    paths:
+    - docker-compose.yml
+    - .github/workflows/docker-compose-01-deploy.yml
 
 jobs:
-  deploy:
-    name: Deploy Docker Compose
+  upload_docker_compose:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,6 +25,16 @@ jobs:
           source: docker-compose.yml
           target: /etc/server
 
+  restart_server:
+    needs: upload_docker_compose
+    uses: ./.github/workflows/restart-server.yml
+    secrets: inherit
+
+  deploy_docker_compose:
+    needs: restart_server
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Deploy compose.yml file
         uses: appleboy/ssh-action@v1
         with:
