@@ -1,0 +1,33 @@
+name: download-server-files
+
+on:
+  workflow_dispatch:
+  push: # temporary
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Download Hytale
+      id: download_hytale
+      run: |
+        wget https://downloader.hytale.com/hytale-downloader.zip
+        unzip hytale-downloader.zip
+        ./hytale-downloader-linux-amd64 -version
+
+        # Trigger authentication flow.
+        # Currently this requires going through a browser auth flow, no way around it.
+        ./hytale-downloader-linux-amd64 -print-version
+
+        # Download game
+        ./hytale-downloader-linux-amd64 -patchline release
+
+        echo "version=$(/hytale-downloader-linux-amd64 -print-version) >> $GITHUB_OUTPUT
+
+    - name: Upload Hytale artifact
+      uses: actions/upload-artifact@v6
+      with:
+        name: ${{ steps.download_hytale.outputs.version }}
+        path: ${{ steps.download_hytale.outputs.version }}.zip
+        if-no-files-found: error
